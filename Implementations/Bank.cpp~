@@ -17,7 +17,7 @@ void BankAccount::get_Num(string accNum)
 	else
 		number = "INVALID";
 }
-void BankAccount::get_Name(owner)
+void BankAccount::get_Name(string owner)
 {
 	if (number[0] == 'I')
 		name = "";
@@ -34,7 +34,7 @@ void BankAccount::get_Bal(double bal)
 }
 
 
-void BankAccount::BankAccount(string owner, string accNum, double bal)
+BankAccount::BankAccount(string owner, string accNum, double bal)
 {
 
 	get_Name(owner);

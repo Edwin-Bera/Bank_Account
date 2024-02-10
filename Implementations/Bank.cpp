@@ -10,14 +10,14 @@ bool BankAccount::checkNum(string accNum)
 			return false;
 	return true;
 }
-void BankAccount::get_Num(string accNum)
+void BankAccount::set_Num(string accNum)
 {
 	if (checkNum(accNum))
 		number = accNum;
 	else
 		number = "INVALID";
 }
-void BankAccount::get_Name(string owner)
+void BankAccount::set_Name(string owner)
 {
 	if (number[0] == 'I')
 		name = "";
@@ -25,7 +25,7 @@ void BankAccount::get_Name(string owner)
 		name = owner;
 }
 
-void BankAccount::get_Bal(double bal)
+void BankAccount::set_Bal(double bal)
 {
 	if (number[0] == 'I')
 		balance = 0;
@@ -37,9 +37,9 @@ void BankAccount::get_Bal(double bal)
 BankAccount::BankAccount(string owner, string accNum, double bal)
 {
 
-	get_Name(owner);
-	get_Num(accNum);
-	get_Bal(bal);
+	set_Name(owner);
+	set_Num(accNum);
+	set_Bal(bal);
 }
 
 string BankAccount::retrieve_Name()
