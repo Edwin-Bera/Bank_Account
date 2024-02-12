@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+int date[3];
+using namespace std;
+void set_Date(string dt);
+int main()
+{
+	set_Date("26/9/1916");
+	for (int index = 0; index < 3; index++)
+		cout << date[index] << endl;
+	return 0;
+
+
+}
+void set_Date(string dt)
+{
+	for (int index = 2, cursor = dt.length() - 1; cursor >= 0; index--, cursor--)
+	{
+		for (int power = 0; dt[cursor] != '/' && cursor >= 0; cursor--, power++)
+		{
+			date[index] += pow(,static_cast<int>(dt[cursor]) - 48), power);
+			//cout << (static_cast<int>(dt[cursor]) - 48) * pow(10, power)<<  endl;
+		}
+	}
+}
+

@@ -1,0 +1,58 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+int date[3];
+using namespace std;
+void set_Date(string dt);
+string invert(string input);
+string retrieve_date();
+int main()
+{
+	set_Date("26/9/1916");
+/*	for (int index = 0; index < 3; index++)
+		cout << date[index] << endl;
+*/	cout << retrieve_date() << endl;
+	return 0;
+
+
+}
+void set_Date(string dt)
+{
+	for (int index = 2, cursor = dt.length() - 1; cursor >= 0; index--, cursor--)
+	{
+		for (int power = 0; dt[cursor] != '/' && cursor >= 0; cursor--, power++)
+		{
+			date[index] += (static_cast<int>(dt[cursor]) - 48) * pow(10, power);
+			//cout << (static_cast<int>(dt[cursor]) - 48) * pow(10, power)<<  endl;
+		}
+	}
+}
+
+string retrieve_date()
+{
+	string output = "";
+	int d[3];
+	int remainder;
+	for (int i = 0; i < 3; i++)
+		d[i] = date[i];
+	for (int index = 0; index < 3; index++)
+	{
+		for (int power = 1; d[index]; power++)
+		{
+			remainder = d[index] % static_cast<int>(pow(10, power));
+			d[index] -= remainder;
+			remainder /= pow(10, power - 1);
+			output += static_cast<char>(remainder + 48);
+		}
+		if (index < 2)
+			output += '/';
+	}
+	return invert(output);
+}
+string invert(string input)
+{
+	string output;
+	for (int index = input.length - 1; index >= 0; index--)
+		output+= input[index];
+	return output;
+}
