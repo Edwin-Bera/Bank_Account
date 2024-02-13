@@ -76,7 +76,7 @@ void BankAccount::set_Bal(double bal)
 }
 
 
-BankAccount::BankAccount(string owner, string accNum,string d, double bal)
+BankAccount::BankAccount(string owner, string accNum,string dt, double bal)
 {
 
 	set_Name(owner);
