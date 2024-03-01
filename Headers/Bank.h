@@ -7,7 +7,7 @@ class BankAccount
 	protected:
 	string name; //name of the account holder
 	string number; //account number
-	int date[3]; //date of account creation. To be used when calculating interest, maturity and service charges
+	int date[2][3]; //[0]date of account creation. [1]date to be used when calculating interest, maturity and service charges
 	double balance;
 
 	public:

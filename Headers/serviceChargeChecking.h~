@@ -1,0 +1,6 @@
+#ifndef SERVCHECK_H
+#define SERVCHECK_H
+#include "Check.h"
+class ServiceChargeChecking: public CheckingAccount, public BankAccount
+{
+}

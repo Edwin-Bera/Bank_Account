@@ -6,8 +6,8 @@ using namespace std;
 class CheckingAccount: public BankAccount
 {
 	public:
-		virtual double write_check(double amount) = 0;
-		CheckingAccount(string owner, string num, double bal); 
+		virtual double write_check(double amount, string dt, string recipient) = 0;
+		CheckingAccount(string owner, string num, string dt, double bal); 
 
 };
 #endif

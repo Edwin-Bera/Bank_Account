@@ -33,7 +33,7 @@ void BankAccount::set_Date(string dt)
 	{
 		for (int power = 0; dt[cursor] != '/' && cursor >= 0; cursor--, power++)
 		{
-			date[index] += (static_cast<int>(dt[cursor]) - 48) * pow(10, power);
+			date[0][index] += (static_cast<int>(dt[cursor]) - 48) * pow(10, power);
 			//cout << (static_cast<int>(dt[cursor]) - 48) * pow(10, power)<<  endl;
 		}
 	}
@@ -45,7 +45,7 @@ string BankAccount::retrieve_Date()
 	int d[3];
 	int remainder;
 	for (int i = 0; i < 3; i++)
-		d[i] = date[i];
+		d[i] = date[0][i];
 	for (int index = 0; index < 3; index++)
 	{
 		for (int power = 1; d[index]; power++)

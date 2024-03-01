@@ -62,9 +62,19 @@ string BankAccount::retrieve_Date()
 }
 string BankAccount::invert(string input)
 {
-	string output;
-	for (int index = input.length() - 1; index >= 0; index--)
-		output+= input[index];
+	string output, temp[3];
+
+	int i = 0;
+	for (int index = 0; index < 3; index++)
+	{
+		for (; input[i] != '/' && i < input.length(); i++)
+			temp[index] += input[i];
+		i++;
+		for (int idx = temp[index].length() - 1; idx >= 0; idx--)
+			output += temp[index][idx];
+		if (index < 2)
+			output += '/';
+	}
 	return output;
 }
 void BankAccount::set_Bal(double bal)
