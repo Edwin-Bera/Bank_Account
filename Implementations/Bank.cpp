@@ -33,9 +33,9 @@ void BankAccount::set_Date(string dt)
 	{
 		for (int power = 0; dt[cursor] != '/' && cursor >= 0; cursor--, power++)
 		{
-			date[0][index] += (static_cast<int>(dt[cursor]) - 48) * pow(10, power);
-			//cout << (static_cast<int>(dt[cursor]) - 48) * pow(10, power)<<  endl;
+			date[0][index] += (static_cast<int>(dt[cursor]) - 48) * pow(10, power); 
 		}
+		date[1][index] = date[0][index];
 	}
 }
 
@@ -115,4 +115,27 @@ void BankAccount::deposit(double amount)
 {
 	if (number[0] != 'I')
 		balance += amount;
+}
+
+bool BankAccount::compareDates(string dt)
+{
+	int d[3];
+
+	for (int index = 2, cursor = dt.length() - 1; cursor >= 0; index--, cursor--)
+	{
+		for (int power = 0; dt[cursor] != '/' && cursor >= 0; cursor--, power++)
+		{
+			d[index] += (static_cast<int>(dt[cursor]) - 48) * pow(10, power); 
+		}
+	}
+
+	if( date[1][2] > d[2])
+		return false;
+	else if (date[1][2] == d[2])
+		if ((date[1][1] > d[1]) || (date[1][1] == d[1] & date[1][0] > d[0]))
+			return false;
+		else
+			return true;
+	else
+		return true;
 }

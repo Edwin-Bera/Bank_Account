@@ -4,10 +4,13 @@
 class ServiceChargeChecking: public CheckingAccount, public BankAccount
 {
 	int checkCount;
-	const int checkLimit = 3;
+	const int monthlyLimit = 3;
 	public:
-		calculateServiceCharge(string today);
+	
+		serviceChargeChecking(string owner, string num, string dt, double bal); 
+		double calculateServiceCharge(string today);
 		double checkBalance(string today);
+		void updateBalance(string today);
 
 		virtual double write_check(double amount, string dt, string recipient) = 0;
 }

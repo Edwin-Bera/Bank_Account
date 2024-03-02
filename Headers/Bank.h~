@@ -7,7 +7,7 @@ class BankAccount
 	protected:
 	string name; //name of the account holder
 	string number; //account number
-	int date[3][2]; //[0]date of account creation. [1]date to be used when calculating interest, maturity and service charges
+	int date[2][3]; //[0]date of account creation. [1]date to be used when calculating interest, maturity and service charges
 	double balance;
 
 	public:
@@ -25,6 +25,7 @@ class BankAccount
 	virtual void withdraw(double amount) = 0;
 	void deposit(double amount);
 	bool checkNum(string accNum);
+	bool compareDates(string d);
 
 	private:
 

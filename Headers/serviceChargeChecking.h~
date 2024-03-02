@@ -3,4 +3,12 @@
 #include "Check.h"
 class ServiceChargeChecking: public CheckingAccount, public BankAccount
 {
+	int checkCount;
+	const int monthlyLimit = 3;
+	public:
+		double calculateServiceCharge(string today);
+		double checkBalance(string today);
+		void updateBalance(string today);
+
+		virtual double write_check(double amount, string dt, string recipient) = 0;
 }

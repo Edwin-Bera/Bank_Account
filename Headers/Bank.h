@@ -25,6 +25,7 @@ class BankAccount
 	virtual void withdraw(double amount) = 0;
 	void deposit(double amount);
 	bool checkNum(string accNum);
+	bool compareDates(string dt);
 
 	private:
 
