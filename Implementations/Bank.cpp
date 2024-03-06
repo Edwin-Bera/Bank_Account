@@ -25,7 +25,17 @@ void BankAccount::set_Name(string owner)
 	else
 		name = owner;
 }
+void BankAccount::convert_stringDate(int d[], string dt)
+{
 
+	for (int index = 2, cursor = dt.length() - 1; cursor >= 0; index--, cursor--)
+	{
+		for (int power = 0; dt[cursor] != '/' && cursor >= 0; cursor--, power++)
+		{
+			d[index] += (static_cast<int>(dt[cursor]) - 48) * pow(10, power); 
+		}
+	}
+}
 void BankAccount::set_Date(string dt)
 {
 
@@ -120,14 +130,9 @@ void BankAccount::deposit(double amount)
 bool BankAccount::compareDates(string dt)
 {
 	int d[3];
-
-	for (int index = 2, cursor = dt.length() - 1; cursor >= 0; index--, cursor--)
-	{
-		for (int power = 0; dt[cursor] != '/' && cursor >= 0; cursor--, power++)
-		{
-			d[index] += (static_cast<int>(dt[cursor]) - 48) * pow(10, power); 
-		}
-	}
+     
+	convert_stringDate(d, dt);
+	   
 
 	if( date[1][2] > d[2])
 		return false;
@@ -139,3 +144,26 @@ bool BankAccount::compareDates(string dt)
 	else
 		return true;
 }
+int BankAccount:: calculateDays(string today)
+{
+
+	if (!compareDates(today))
+		return -1;
+	int d[3];
+	unsigned int days = 0;
+	convert_stringDate(d, today);
+	if ( date[1][1] > d[1])
+	{
+		days += 30 - date[1][0] + d[0];
+		date[1][1]++;
+	}
+	if (date[1][2] < d[2])
+		days += (12 - date[1][1]) * 30 + d[1] * 30 + ((d[2] - date[1][2] + 1) *12) * 30;
+	if ( date[1][1] == d[1] && date[1][0] > d[0])
+		days += date[1][0] - d[0];
+
+	for (int i = 0; i < 3; i++)
+		date[1][i] = d[i];
+	return days;
+}
+

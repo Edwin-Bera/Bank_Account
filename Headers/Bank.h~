@@ -21,13 +21,15 @@ class BankAccount
 	void set_Num(string accNum);
 	void set_Bal(double bal);
 	void set_Date(string dt);
+	void convert_stringDate(int d[], string dt);
 	virtual void monthly_statement() = 0;
 	virtual void withdraw(double amount) = 0;
 	void deposit(double amount);
 	bool checkNum(string accNum);
-	bool compareDates(string d);
+	bool compareDates(string dt);
 
 	private:
+	int calculateDays(string today);
 
 	string invert(string input);
 };

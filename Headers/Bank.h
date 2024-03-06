@@ -9,7 +9,8 @@ class BankAccount
 	string number; //account number
 	int date[2][3]; //[0]date of account creation. [1]date to be used when calculating interest, maturity and service charges
 	double balance;
-
+	int calculateDays(string today);
+	
 	public:
 
 	BankAccount(string owner, string accNum, string dt, double bal);
@@ -21,6 +22,7 @@ class BankAccount
 	void set_Num(string accNum);
 	void set_Bal(double bal);
 	void set_Date(string dt);
+	void convert_stringDate(int d[], string dt);
 	virtual void monthly_statement() = 0;
 	virtual void withdraw(double amount) = 0;
 	void deposit(double amount);
@@ -28,7 +30,7 @@ class BankAccount
 	bool compareDates(string dt);
 
 	private:
-
+	
 	string invert(string input);
 };
 #endif
