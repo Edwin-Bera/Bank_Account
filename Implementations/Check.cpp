@@ -7,4 +7,5 @@ CheckingAccount::CheckingAccount(string owner, string num, string dt, double bal
 {
 }
 
-
+CheckingAccount::CheckingAccount():BankAccount()
+{}

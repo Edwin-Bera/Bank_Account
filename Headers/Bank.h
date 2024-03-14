@@ -14,6 +14,7 @@ class BankAccount
 	public:
 
 	BankAccount(string owner, string accNum, string dt, double bal);
+	BankAccount();
 	string retrieve_Name();
 	string retrieve_Num();
 	string retrieve_Date();
@@ -24,7 +25,7 @@ class BankAccount
 	void set_Date(string dt);
 	void convert_stringDate(int d[], string dt);
 	virtual void monthly_statement() = 0;
-	virtual void withdraw(double amount) = 0;
+	virtual void withdraw(double amount, string today) = 0;
 	void deposit(double amount);
 	bool checkNum(string accNum);
 	bool compareDates(string dt);

@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
- highInterestChecking::highInterestChecking(string owner, string num, string dt, double bal):noServiceChargeChecking(owner, num, dt, bal)
+ highInterestChecking::highInterestChecking(string owner, string num, string dt, double bal):noServiceChargeChecking()
 {
 	if (bal < min_bal)
 		set_Bal(0);
@@ -15,6 +15,9 @@ using namespace std;
         	set_Date(dt);
 	}
       
+}
+highInterestChecking::highInterestChecking():noServiceChargeChecking()
+{
 }
 double highInterestChecking::calculateInterest(string today)
 {

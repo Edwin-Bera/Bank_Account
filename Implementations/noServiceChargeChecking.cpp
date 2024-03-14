@@ -6,6 +6,8 @@ noServiceChargeChecking::noServiceChargeChecking(string owner, string num, strin
 {
 }
 
+noServiceChargeChecking::noServiceChargeChecking():CheckingAccount()
+{}
 double noServiceChargeChecking::calculateInterest(string today)
 {
 	return calculateDays(today) / 365 * annualInterest;

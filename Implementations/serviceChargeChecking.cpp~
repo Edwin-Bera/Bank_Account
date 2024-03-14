@@ -13,8 +13,8 @@ double serviceChargeChecking::calculateServiceCharge(string today)
 }
 void serviceChargeChecking::updateBalance(string today)
 {
-	charge =calculateServiceCharge(today);
-	if (charge))
+	double charge =calculateServiceCharge(today);
+	if (charge)
 		balance -= charge;
 }
  

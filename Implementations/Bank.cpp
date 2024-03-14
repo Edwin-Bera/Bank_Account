@@ -104,6 +104,13 @@ BankAccount::BankAccount(string owner, string accNum,string dt, double bal)
 	set_Date(dt);
 	set_Bal(bal);
 }
+BankAccount::BankAccount()
+{
+	set_Name("");
+	set_Num("");
+	set_Date("0/0/0");
+	set_Bal(0);
+}
 
 string BankAccount::retrieve_Name()
 {

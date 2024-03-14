@@ -7,6 +7,8 @@ serviceChargeChecking::serviceChargeChecking(string owner, string num, string dt
 {
 }
 
+serviceChargeChecking::serviceChargeChecking():CheckingAccount()
+{}
 double serviceChargeChecking::calculateServiceCharge(string today)
 {
 	return calculateDays(today) / 30 * monthlyCharge;

@@ -3,7 +3,7 @@
 #include "noServiceChargeChecking.h"
 class highInterestChecking: public noServiceChargeChecking
 {
-	const double higherInterest = 2.29, minimun_bal = 350;
+	const double higherInterest = 2.29, min_bal = 350;
 	public:
   	highInterestChecking(string owner, string num, string dt, double bal);
 	double calculateInterest(string today);

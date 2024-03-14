@@ -11,7 +11,7 @@ using namespace std;
 	{
 		set_Bal(bal);
 		set_Name(owner);
-        	set_Num(accNum);
+        	set_Num(num);
         	set_Date(dt);
 	}
       

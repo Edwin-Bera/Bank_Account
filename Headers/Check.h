@@ -7,7 +7,8 @@ class CheckingAccount: public BankAccount
 {
 	public:
 		virtual double write_check(double amount, string dt, string recipient) = 0;
-		CheckingAccount(string owner, string num, string dt, double bal); 
+		CheckingAccount(string owner, string num, string dt, double bal);
+		CheckingAccount();
 
 };
 #endif

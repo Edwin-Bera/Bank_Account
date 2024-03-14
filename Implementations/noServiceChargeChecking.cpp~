@@ -19,7 +19,7 @@ void noServiceChargeChecking::updateBalance(string today)
 }
 double noServiceChargeChecking::checkBalance(string today)
 {
-	updateBalannce(today);
+	updateBalance(today);
 	return balance;
 }
 
