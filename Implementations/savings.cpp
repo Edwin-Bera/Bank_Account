@@ -10,7 +10,7 @@ savingsAccount::savingsAccount():BankAccount()
 
 double savingsAccount::calculateInterest(string today)
 {
-        return calculateDays(today) / 365 * INTEREST_RATE;
+        return calculateDays(today) / 365 * INTEREST_RATE / 100 * balance;
 }
 
 double savingsAccount::checkBalance(string today)
@@ -21,7 +21,7 @@ double savingsAccount::checkBalance(string today)
 
 void savingsAccount::updateBalance(string today)
 {
-	double interest = calculateDays(today);
+	double interest = calculateInterest(today);
 	if (interest)
 		balance += interest;
 }

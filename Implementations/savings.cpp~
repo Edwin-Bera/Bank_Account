@@ -15,15 +15,15 @@ double savingsAccount::calculateInterest(string today)
 
 double savingsAccount::checkBalance(string today)
 {
-	double interest = calculateDays(today);
-	if (interest)
-		balance += interest;
+	updateBalance(today);
+	return balance;
 }
 
 void savingsAccount::updateBalance(string today)
 {
-	updateBalance(today);
-	return balance;
+	double interest = calculateInterest(today);
+	if (interest)
+		balance += interest;
 }
 
 void savingsAccount::withdraw(double amount, string today)

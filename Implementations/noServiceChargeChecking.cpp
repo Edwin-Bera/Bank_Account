@@ -10,7 +10,7 @@ noServiceChargeChecking::noServiceChargeChecking():CheckingAccount()
 {}
 double noServiceChargeChecking::calculateInterest(string today)
 {
-	return calculateDays(today) / 365 * annualInterest;
+	return calculateDays(today) / 365 * annualInterest / 100 * balance;
 }
 
 void noServiceChargeChecking::updateBalance(string today)
