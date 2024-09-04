@@ -10,7 +10,9 @@ savingsAccount::savingsAccount():BankAccount()
 
 double savingsAccount::calculateInterest(string today)
 {
-        return calculateDays(today) / 365 * INTEREST_RATE / 100 * balance;
+	if (accountCheck())
+        	return calculateDays(today) / 365 * INTEREST_RATE / 100 * balance;
+	else return -1;
 }
 
 double savingsAccount::checkBalance(string today)
@@ -28,14 +30,17 @@ void savingsAccount::updateBalance(string today)
 
 void savingsAccount::withdraw(double amount, string today)
 {
-	updateBalance(today);
-	if (amount > balance)
-		cout << "INVALID TRANSACTION" << endl;
-	else
+	if (accountCheck())
 	{
-		balance -= amount;
-		cout << "TRANSACTION SUCCESSFUL" << endl;
-		cout << "The amount of " << amount << " has been withdrawn" << endl;
-		cout << "Your remaining balance is :" << balance << endl;
+		updateBalance(today);
+		if (amount > balance)
+			cout << "INVALID TRANSACTION" << endl;
+		else
+		{
+			balance -= amount;
+			cout << "TRANSACTION SUCCESSFUL" << endl;
+			cout << "The amount of " << amount << " has been withdrawn" << endl;
+			cout << "Your remaining balance is :" << balance << endl;
+		}
 	}
 }

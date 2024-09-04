@@ -16,3 +16,25 @@ highInterestSavings::highInterestSavings(string owner, string num, string dt, do
 	}
 		
 }
+double highInterestSavings::calculateInterest(string today)
+{
+	if (accountCheck())
+		return calculateDays(today) / 365 * HIGHER_INTEREST / 100 * balance;
+	else
+		return -1;
+}
+void highInterestSavings::withdraw(double amount, string today)
+{
+	if (!accountCheck())
+	{
+		updateBalance(today);
+		if (balance - amount < MINIMUM_BALANCE)
+			cout << "Invalid Transaction" << endl;
+		else
+		{
+			balance -= amount;
+			cout << "TRANSACTION SUCCESSFUL" << endl;
+			cout << "The amount of " << amount << " has been withdrawn" << endl;
+			cout << "Your remaining balance is :" << balance << endl;
+		}
+}

@@ -1,6 +1,7 @@
 #include "../Headers/Bank.h"
 #include <string>
 #include <cmath>
+#include <iostream>
 using namespace std;
 bool BankAccount::checkNum(string accNum)
 {
@@ -104,6 +105,13 @@ BankAccount::BankAccount(string owner, string accNum,string dt, double bal)
 	set_Date(dt);
 	set_Bal(bal);
 }
+BankAccount::BankAccount()
+{
+	set_Name("");
+	set_Num("");
+	set_Date("0/0/0");
+	set_Bal(0);
+}
 
 string BankAccount::retrieve_Name()
 {
@@ -167,3 +175,16 @@ int BankAccount:: calculateDays(string today)
 	return days;
 }
 
+bool BankAccount::accountCheck()
+{
+	if (number.length() < 16 || name.length() < 3 || !balance || !date[0] || !date[1] || !date[2])
+	{
+		cout << "INVALID ACCOUNT!" << endl;
+		number = "";
+		name = "";
+		balance = 0;
+		return false;
+	}
+	else
+		return true;
+}

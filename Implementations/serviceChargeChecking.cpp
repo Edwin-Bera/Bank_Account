@@ -11,7 +11,10 @@ serviceChargeChecking::serviceChargeChecking():CheckingAccount()
 {}
 double serviceChargeChecking::calculateServiceCharge(string today)
 {
-	return calculateDays(today) / 30 * monthlyCharge;
+	if (accountCheck())
+		return calculateDays(today) / 30 * monthlyCharge;
+	else
+		return -1;
 }
 void serviceChargeChecking::updateBalance(string today)
 {
@@ -28,6 +31,8 @@ double serviceChargeChecking::checkBalance(string today)
 
 double serviceChargeChecking::write_check(double amount, string today, string recipient)
 {
+	if (!accountCheck())
+		return -1;
 
 	updateBalance(today);
 	if (!compareDates(today) || balance < amount)

@@ -10,7 +10,9 @@ noServiceChargeChecking::noServiceChargeChecking():CheckingAccount()
 {}
 double noServiceChargeChecking::calculateInterest(string today)
 {
-	return calculateDays(today) / 365 * annualInterest;
+	if(accountCheck())
+		return calculateDays(today) / 365 * annualInterest / 100 * balance;
+	return (-1)
 }
 
 void noServiceChargeChecking::updateBalance(string today)
@@ -27,20 +29,23 @@ double noServiceChargeChecking::checkBalance(string today)
 
  double noServiceChargeChecking::write_check(double amount, string today, string recipient)
 {
+	if (accountCheck())
+	{
+        	updateBalance(today);
+        	if (!compareDates(today) || balance < amount)
+        	{
+                	cout << "Invalid transaction" << endl;
+                	return 0.0;
+        	}
+        	balance -= amount;
 
-        updateBalance(today);
-        if (!compareDates(today) || balance < amount)
-        {
-                cout << "Invalid transaction" << endl;
-                return 0.0;
-        }
-        balance -= amount;
-
-        cout << "Account Holder: " << name << endl;
-        cout << "Recipient:      " << recipient << endl;
-        cout << "Amount:         " << amount << endl;
-        cout << "Date:           " << today << endl;
-        return amount;
+        	cout << "Account Holder: " << name << endl;
+        	cout << "Recipient:      " << recipient << endl;
+        	cout << "Amount:         " << amount << endl;
+        	cout << "Date:           " << today << endl;
+        	return amount;
+	}
+	return -1;
 
 }
 

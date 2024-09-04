@@ -1,10 +1,11 @@
 #include "../Headers/Bank.h"
 #include <string>
 #include <cmath>
+#include <iostream>
 using namespace std;
 bool BankAccount::checkNum(string accNum)
 {
-	if (accNum.length() != 10)
+	if (accNum.length() != 16)
 		return false;
 	for (int index = 0; index < 10; index++)
 		if (accNum[index] < '0' && accNum[index] > '9')
@@ -174,3 +175,16 @@ int BankAccount:: calculateDays(string today)
 	return days;
 }
 
+bool BankAccount::accountCheck()
+{
+	if (!checkNum(number) || name.length() < 3 || !balance || !date[0][0] || !date[0][1] || !date[0][2])
+	{
+		cout << "INVALID ACCOUNT!" << endl;
+		number = "";
+		name = "";
+		balance = 0;
+		return false;
+	}
+	else
+		return true;
+}

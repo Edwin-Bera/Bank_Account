@@ -21,7 +21,7 @@ highInterestChecking::highInterestChecking():noServiceChargeChecking()
 }
 double highInterestChecking::calculateInterest(string today)
 {
-        return calculateDays(today) / 365 * higherInterest;
+        return calculateDays(today) / 365 * higherInterest / 100 * balance;
 }
 
 /*void highInterestChecking::updateBalance(string today)

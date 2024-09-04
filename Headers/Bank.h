@@ -15,6 +15,7 @@ class BankAccount
 
 	BankAccount(string owner, string accNum, string dt, double bal);
 	BankAccount();
+	bool accountCheck();
 	string retrieve_Name();
 	string retrieve_Num();
 	string retrieve_Date();

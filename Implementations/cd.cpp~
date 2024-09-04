@@ -10,7 +10,8 @@ int certificateOfDeposit::setMaturity(int m)
 		maturity = 0;
 	return maturity;
 }
-certificateOfDeposit::certificateOfDeposit(string owner, string accNum, string dt, int months_to_mature, double bal):BankAccount(owner, accNum, dt, bal)
+certificateOfDeposit::certificateOfDeposit(string owner, string accNum, string dt, int months_to_mature, double bal)
+	:BankAccount(owner, accNum, dt, bal)
 {
 	if (!setMaturity(months_to_mature))
 	{
